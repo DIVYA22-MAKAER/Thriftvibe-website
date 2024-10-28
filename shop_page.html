@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | ThriftVibe</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #FF69B4;
+            --secondary-pink: #FFB6C1;
+            --dark-pink: #FF1493;
+            --light-pink: #FFC0CB;
+        }
+        
+        .navbar-brand {
+            color: var(--dark-pink) !important;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-pink) !important;
+        }
+        
+        .btn-pink {
+            background-color: var(--primary-pink);
+            color: white;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-pink:hover {
+            background-color: var(--dark-pink);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .card {
+            transition: transform 0.3s;
+            border: none;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .price-tag {
+            color: var(--dark-pink);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .badge-pink {
+            background-color: var(--primary-pink);
+            color: white;
+        }
+
+        .filter-btn.active {
+            background-color: var(--dark-pink);
+            color: white;
+        }
+
+        .wishlist-heart {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .wishlist-heart:hover {
+            color: var(--dark-pink);
+        }
+
+        .size-btn {
+            border: 1px solid var(--primary-pink);
+            color: var(--primary-pink);
+            background: white;
+            margin: 2px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .size-btn:hover {
+            background: var(--primary-pink);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">✨ ThriftVibe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="shop_page.html">🛍️ Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community_page.html">👥 Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sustainabel_page.html">🌱 Sustainability</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Cart (0)</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold" style="color: var(--dark-pink);">Thrift with Style</h1>
+                    <p class="lead">Discover unique pre-loved fashion pieces that make you stand out.</p>
+                    <div class="input-group mb-3 mt-4">
+                        <input type="text" class="form-control" placeholder="Search for items...">
+                        <button class="btn btn-pink"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/Blog - Peau neuve.jpg" class="img-fluid rounded-3 shadow" alt="Shop Banner" style="max-height: 250px; width: 1250px; object-fit: cover; border-radius: 8px;">
+					
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Shop Section -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Filters -->
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <h5>Categories</h5>
+                    <div class="d-flex flex-column gap-2">
+                        <button class="btn btn-pink active">All Items</button>
+                        <button class="btn btn-outline-pink">Dresses</button>
+                        <button class="btn btn-outline-pink">Tops</button>
+                        <button class="btn btn-outline-pink">Bottoms</button>
+                        <button class="btn btn-outline-pink">Accessories</button>
+                        <button class="btn btn-outline-pink">Shoes</button>
+                    </div>
+
+                    <h5 class="mt-4">Price Range</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="price1">
+                        <label class="form-check-label" for="price1">Under $25</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="price2">
+                        <label class="form-check-label" for="price2">$25 - $50</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="price3">
+                        <label class="form-check-label" for="price3">$50 - $100</label>
+                    </div>
+
+                    <h5 class="mt-4">Condition</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cond1">
+                        <label class="form-check-label" for="cond1">Like New</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cond2">
+                        <label class="form-check-label" for="cond2">Gently Used</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cond3">
+                        <label class="form-check-label" for="cond3">Well Loved</label>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="col-md-9">
+                    <div class="row g-4">
+                        <!-- Product Card 1 -->
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="wishlist-heart">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                              <img src="images/Damen Vintage Blumen Vorderseite Knotenshirt Bustier Crop Top, Palast Stil.jpg" class="img-fluid rounded shadow-sm mb-3" alt="Vintage floral front-knot shirt" style="max-height: 350px; object-fit: cover; border-radius: 8px;">
+                                <div class="card-body">
+                                    <span class="badge badge-pink mb-2">Like New</span>
+                                    <h5 class="card-title">Vintage corset</h5>
+                                    <p class="price-tag mb-2">$35.00</p>
+                                    <div class="mb-3">
+                                        <button class="size-btn">S</button>
+                                        <button class="size-btn">M</button>
+                                        <button class="size-btn">L</button>
+                                    </div>
+                                    <button class="btn btn-pink w-100">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="wishlist-heart">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                                <img src="images/Silk Wrap Top, Top _ Shirts For Women, Gifts For Her, Flared Sleeves Top, Vacation Dress, Indian Vintage Silk Dress, Women Dress, 80s Style.jpg" class="img-fluid rounded shadow-sm mb-3" alt="Coffee shop interior" style="max-height: 350px; object-fit: cover; border-radius: 8px;">
+                                <div class="card-body">
+                                    <span class="badge badge-pink mb-2">Gently Used</span>
+                                    <h5 class="card-title">Cute Shrug&nbsp;</h5>
+                                    <p class="price-tag mb-2">$45.00</p>
+                                    <p class="text-muted small mb-3">Original Price: $120.00</p>
+                                    <button class="btn btn-pink w-100">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="col-md-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="wishlist-heart">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                                <img src="images/Cabbage Rose Shabby Chic Cottage Fairy Dress - S _ Asian Size.jpg" class="img-fluid rounded shadow-sm mb-3" alt="Forest view" style="max-height: 500px; object-fit: cover; border-radius: 8px;">
+                                <div class="card-body">
+                                    <span class="badge badge-pink mb-2">Vintage</span>
+                                    <h5 class="card-title">floral white vintage dress&nbsp;</h5>
+                                    <p class="price-tag mb-2">$55.00</p>
+                                    <div class="mb-3">
+                                        <button class="size-btn">M</button>
+                                        <button class="size-btn">L</button>
+                                        <button class="size-btn">XL</button>
+                                    </div>
+                                    <button class="btn btn-pink w-100">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More product cards... -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item"><a class="page-link" href="#" style="color: var(--dark-pink);">Previous</a></li>
+                            <li class="page-item active"><a class="page-link bg-pink border-pink" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#" style="color: var(--dark-pink);">2</a></li
+                            <li class="page-item"><a class="page-link" href="#" style="color: var(--dark-pink);">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h3 style="color: var(--dark-pink);">Stay Updated 💌</h3>
+            <p>Subscribe to get notified about new arrivals and exclusive offers!</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-pink">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-4 border-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 style="color: var(--dark-pink);">ThriftVibe</h5>
+                    <p>Making sustainable fashion accessible and exciting for everyone.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color: var(--dark-pink);">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">About Us</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">FAQ</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Shipping Info</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Returns Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 style="color: var(--dark-pink);">Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-decoration-none me-3" style="color: var(--primary-pink);"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-decoration-none me-3" style="color: var(--primary-pink);"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-decoration-none me-3" style="color: var(--primary-pink);"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-decoration-none" style="color: var(--primary-pink);"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="mb-0">&copy; 2024 ThriftVibe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
